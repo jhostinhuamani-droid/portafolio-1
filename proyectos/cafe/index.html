@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Café Andino | Proyecto 1</title>
+<style>
+:root{--c:#3b2417;--m:#c98b4a;--f:#f6efe6}
+*{box-sizing:border-box;margin:0}
+body{font:1.05rem/1.7 Georgia,serif;background:var(--f);color:var(--c)}
+a{color:inherit}
+.back{position:fixed;top:12px;left:12px;background:#fff;border-radius:99px;padding:.4rem 1rem;font:600 .9rem system-ui,sans-serif;text-decoration:none;box-shadow:0 2px 8px #0003;z-index:5}
+.hero{min-height:90vh;display:grid;place-items:center;text-align:center;padding:2rem;background:#000;color:#fff}
+.logo{width:min(420px,85%);margin:0 auto}
+.sr{position:absolute;left:-9999px}
+h1{font-size:clamp(2.5rem,8vw,5rem);line-height:1}
+.hero p{max-width:40ch;margin:1rem auto 1.5rem}
+.btn{display:inline-block;background:var(--m);color:#2a170d;padding:.8rem 1.8rem;border-radius:99px;font:700 1rem system-ui,sans-serif;text-decoration:none}
+section{max-width:1000px;margin:auto;padding:4rem 1.5rem}
+h2{font-size:2rem;margin-bottom:1.5rem;text-align:center}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.item{background:#fff;border-radius:14px;padding:0 0 1.2rem;border-top:5px solid var(--m);overflow:hidden}
+.item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;margin-bottom:1rem}
+.item h3,.item p{padding:0 1.2rem}
+.item h3{display:flex;justify-content:space-between;gap:1rem}
+.item p{font-size:.95rem;opacity:.8}
+.info{background:var(--c);color:#fff;text-align:center;max-width:none}
+footer{text-align:center;padding:1.5rem;font:.9rem system-ui,sans-serif}
+</style></head><body>
+<a class="back" href="../../index.html#galeria">← Volver al portafolio</a>
+<header class="hero"><div><img class="logo" src="img/logo.jpg" alt="Logo de Café Andino"><h1 class="sr">Café Andino</h1><p>Café de altura, tostado en el día y servido con calma. Ven por una taza.</p><a class="btn" href="#carta">Ver la carta</a></div></header>
+<section id="carta"><h2>Nuestra carta</h2><div class="menu">
+<article class="item"><img src="img/espresso.jpg" alt="Taza de espresso" loading="lazy"><h3>Espresso <span>S/ 7</span></h3><p>Café de origen cusqueño, intenso y de cuerpo suave.</p></article>
+<article class="item"><img src="img/capuchino.jpg" alt="Cappuccino con canela" loading="lazy"><h3>Cappuccino <span>S/ 10</span></h3><p>Espresso con leche vaporizada y espuma cremosa.</p></article>
+<article class="item"><img src="img/frio.jpg" alt="Café frío con hielo" loading="lazy"><h3>Café frío <span>S/ 12</span></h3><p>Infusión en frío durante 12 horas, con hielo.</p></article>
+<article class="item"><img src="img/chicharron.jpg" alt="Pan con chicharrón" loading="lazy"><h3>Pan con chicharrón <span>S/ 14</span></h3><p>Pan crocante, camote frito y salsa criolla.</p></article>
+<article class="item"><img src="img/torta.jpg" alt="Porción de torta de chocolate" loading="lazy"><h3>Torta de chocolate <span>S/ 9</span></h3><p>Porción húmeda con cacao peruano.</p></article>
+<article class="item"><img src="img/te.jpg" alt="Té de hierbas con menta" loading="lazy"><h3>Té de hierbas <span>S/ 6</span></h3><p>Manzanilla, hierba luisa y menta fresca.</p></article></div></section>
+<section class="info"><h2>Visítanos</h2><p>Lunes a sábado, 7:00 a.m. – 9:00 p.m.<br>Av. 2 de Mayo, Jr. Ascope 582</p></section>
+<footer>Proyecto de práctica · Hecho con HTML5 y CSS3 por Jhostin Huamani Rodriguez</footer>
+</body></html>

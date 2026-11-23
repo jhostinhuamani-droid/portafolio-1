@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GameZone | Tienda de videojuegos</title>
+<style>
+:root{--azul:#0a0a6e;--neon:#19e3ff;--mor:#8a3ffc;--bg:#0b0b1a}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font:1rem/1.6 system-ui,sans-serif;background:var(--bg);color:#fff}
+header{position:fixed;top:0;left:0;right:0;height:64px;background:var(--azul);display:flex;align-items:center;justify-content:space-between;padding:0 5vw;z-index:10}
+.logo{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.3rem;color:#fff;text-decoration:none}
+.logo img{height:52px;width:auto;border-radius:10px;display:block}
+nav{display:flex;gap:1.6rem;align-items:center}
+nav a{color:#fff;text-decoration:none;font-size:.95rem;text-transform:uppercase}
+nav a:hover{color:var(--neon)}
+.cart{background:var(--neon);color:#0b0b1a!important;border-radius:99px;padding:.3rem .9rem;font-weight:700}
+.burger{display:none;background:none;border:0;color:#fff;font-size:1.6rem}
+.back{position:fixed;bottom:14px;right:14px;z-index:11;background:#fff;color:#0b0b1a;border-radius:99px;padding:.45rem 1rem;font-weight:700;font-size:.85rem;text-decoration:none}
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:90px 6vw 40px;position:relative;background:radial-gradient(circle at 70% 30%,#8a3ffc66,transparent 55%),radial-gradient(circle at 20% 80%,#19e3ff44,transparent 50%),#0b0b1a}
+.hero-logo{width:min(480px,88%);border-radius:18px;margin:0 auto 1.5rem;display:block;box-shadow:0 0 50px #8a3ffc88}
+.hero div{position:relative;max-width:760px}
+h1{font-size:clamp(1.8rem,5vw,3rem);line-height:1.05;margin-bottom:1rem}
+h1 span{color:var(--neon)}
+.btn{display:inline-block;background:var(--mor);color:#fff;border:0;border-radius:99px;padding:.7rem 1.6rem;font:700 1rem system-ui;text-decoration:none;cursor:pointer}
+.btn:hover{background:var(--neon);color:#0b0b1a}
+section.s{max-width:1100px;margin:auto;padding:5rem 6vw}
+h2{font-size:2rem;text-align:center;margin-bottom:2rem}
+.nos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+.nos div{background:#15152e;border-radius:14px;padding:1.4rem;border-top:4px solid var(--neon)}
+.nos h3{margin-bottom:.4rem}
+.nos p{color:#b8b8d6;font-size:.95rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
+.card{background:#15152e;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.cover{width:100%;aspect-ratio:4/3;object-fit:contain;background:#05050f;display:block}
+.card .in{padding:1rem 1.2rem 1.3rem;display:grid;gap:.4rem}
+.card small{color:var(--neon)}
+.card .pr{font-size:1.3rem;font-weight:800}
+.card button{justify-self:start;margin-top:.3rem;background:var(--mor);color:#fff;border:0;border-radius:99px;padding:.5rem 1.1rem;font:700 .9rem system-ui;cursor:pointer}
+.card button:hover{background:var(--neon);color:#0b0b1a}
+.contacto{text-align:center;color:#b8b8d6}
+.contacto a{color:var(--neon)}
+footer{text-align:center;padding:1.5rem;background:#05050f;font-size:.9rem;color:#b8b8d6}
+.redes{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:9;display:grid}
+.redes a{width:42px;height:42px;display:grid;place-items:center;background:var(--c);transition:width .3s}
+.redes a:hover{width:56px}
+.redes svg{width:20px;height:20px}
+#toast{position:fixed;bottom:70px;left:50%;transform:translate(-50%,20px);background:#fff;color:#0b0b1a;padding:.6rem 1.2rem;border-radius:10px;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:20}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+:focus-visible{outline:3px solid var(--neon);outline-offset:2px}
+@media(max-width:800px){
+.burger{display:block}
+nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;background:var(--azul);padding:1rem 0;gap:1rem}
+nav.open{display:flex}
+.redes{top:auto;bottom:14px;transform:none;grid-auto-flow:column}
+}
+</style></head><body>
+<header>
+<a class="logo" href="#inicio" aria-label="GameZone, ir al inicio"><img src="img/logo.jpg" alt="Logo de GameZone"></a>
+<button class="burger" aria-label="Abrir menú" aria-expanded="false">☰</button>
+<nav id="nav"><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#catalogo">Galería</a><a href="#contactos">Contactos</a><a class="cart" href="#catalogo">Carrito: <span id="n">0</span></a></nav>
+</header>
+
+<div class="redes">
+<a style="--c:#d44638" href="mailto:jhostin.huamani@tecsup.edu.pe" aria-label="Correo"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+<a style="--c:#0a66c2" href="https://www.linkedin.com/in/jhostin-jose-huamani-rodriguez-00631a451/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#fff"><rect x="3" y="9" width="4" height="12"/><circle cx="5" cy="5" r="2.2"/><path d="M10 9h4v1.7c.6-1.1 2-2 3.8-2 3.3 0 4.2 2.1 4.2 5V21h-4v-6c0-1.3-.4-2.2-1.6-2.2S14 13.7 14 15v6h-4z"/></svg></a>
+<a style="--c:#25d366" href="https://wa.me/51907066544" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
+
+<section class="hero" id="inicio">
+<div>
+<img class="hero-logo" src="img/logo.jpg" alt="Logo de GameZone, tu tienda de videojuegos">
+<h1>Tu próximo nivel empieza en <span>GameZone</span></h1>
+<p style="margin-bottom:1.6rem;color:#d4d4ee">Los mejores videojuegos para PC, consolas y portátiles, con precios que sí se pueden pagar. Elige tu juego y empieza a jugar hoy.</p>
+<a class="btn" href="#catalogo">Ver catálogo</a>
+</div>
+</section>
+
+<section class="s" id="nosotros"><h2>Nosotros</h2>
+<div class="nos">
+<div><h3>Juegos originales</h3><p>Trabajamos solo con productos originales y con garantía.</p></div>
+<div><h3>Envíos rápidos</h3><p>Recibe tu pedido en 24 a 48 horas dentro de la ciudad.</p></div>
+<div><h3>Atención cercana</h3><p>Te ayudamos a elegir según tu consola y tu presupuesto.</p></div>
+</div></section>
+
+<section class="s" id="catalogo"><h2>Galería de juegos</h2>
+<div class="grid" id="grid"></div></section>
+
+<section class="s contacto" id="contactos"><h2>Contactos</h2>
+<p>Escríbenos y resolvemos tus dudas.</p>
+<p><a href="mailto:jhostin.huamani@tecsup.edu.pe">jhostin.huamani@tecsup.edu.pe</a> · <a href="https://wa.me/51907066544" target="_blank" rel="noopener">+51 907 066 544</a></p>
+</section>
+
+<footer>Proyecto de práctica · Hecho con HTML5, CSS3 y JavaScript por Jhostin Huamani Rodriguez</footer>
+<a class="back" href="../../index.html#galeria">← Volver al portafolio</a>
+<div id="toast" role="status"></div>
+<script>
+const juegos=[
+['God of War Ragnarök','Aventura · PS5 / PC',189,'godofwar'],
+['EA Sports FC 26','Deportes · PS5 / Xbox / PC',239,'fc26'],
+['Grand Theft Auto VI','Acción · PS5 / Xbox',299,'gta6'],
+['Marvel\'s Wolverine','Acción · PS5',279,'wolverine'],
+['LEGO Batman: Legacy of the Dark Knight','Aventura · PS5 / Xbox / PC',219,'legobatman'],
+['007 First Light','Acción · PS5 / Xbox / PC',249,'007']];
+const g=document.getElementById('grid');
+juegos.forEach(j=>{
+  const c=document.createElement('article');c.className='card';
+  c.innerHTML=`<img class="cover" src="img/${j[3]}.jpg" alt="Portada de ${j[0]}" loading="lazy"><div class="in"><h3>${j[0]}</h3><small>${j[1]}</small><span class="pr">S/ ${j[2]}.00</span><button type="button">Agregar al carrito</button></div>`;
+  c.querySelector('button').onclick=()=>{n.textContent=++cant;aviso(j[0]+' agregado al carrito')};
+  g.append(c);
+});
+let cant=0;const n=document.getElementById('n'),t=document.getElementById('toast');
+function aviso(m){t.textContent=m;t.classList.add('on');clearTimeout(aviso.x);aviso.x=setTimeout(()=>t.classList.remove('on'),1800)}
+const b=document.querySelector('.burger'),nav=document.getElementById('nav');
+b.onclick=()=>{b.setAttribute('aria-expanded',nav.classList.toggle('open'))};
+nav.onclick=e=>{if(e.target.tagName==='A'){nav.classList.remove('open');b.setAttribute('aria-expanded',false)}};
+</script></body></html>
