@@ -3,7 +3,8 @@
 Landing page responsive de mi portafolio personal, hecha con **HTML5, CSS3, JavaScript y PHP/MySQL**.
 Estudiante de Diseño y Desarrollo de Software, 2do ciclo, TECSUP.
 
-🔗 **Sitio en línea:** https://jhostin-portafolio.infinityfreeapp.com
+🔗 **Sitio en línea (Vercel):** https://portafolio-1-rouge.vercel.app
+🔗 **Versión con formulario (InfinityFree):** https://jhostin-portafolio.infinityfreeapp.com
 
 ## Secciones
 Inicio · Nosotros (Acerca de mí, habilidades y profesores) · Galería · Testimonios · Contacto
